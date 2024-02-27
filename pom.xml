@@ -18,11 +18,13 @@
 
     <modules>
         <module>core</module>
+        <module>arch-unit-tests</module>
     </modules>
 
     <properties>
         <java.version>21</java.version>
         <maven-checkstyle-plugin.version>3.3.1</maven-checkstyle-plugin.version>
+        <arch-unit-maven-plugin.version>4.0.2</arch-unit-maven-plugin.version>
     </properties>
 
     <build>
@@ -42,6 +44,39 @@
                                 <configLocation>checkstyle.xml</configLocation>
                                 <suppressionsLocation>checkstyle-suppressions.xml</suppressionsLocation>
                             </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
+                    <groupId>com.societegenerale.commons</groupId>
+                    <artifactId>arch-unit-maven-plugin</artifactId>
+                    <version>${arch-unit-maven-plugin.version}</version>
+                    <configuration>
+                        <rules>
+                            <configurableRules>
+                                <configurableRule>
+                                    <rule>com.splitbill.archunit.ArchUnitMainSuiteRules</rule>
+                                    <applyOn>
+                                        <packageName>com.splitbill.${project.name}</packageName>
+                                        <scope>main</scope>
+                                    </applyOn>
+                                </configurableRule>
+                                <configurableRule>
+                                    <rule>com.splitbill.archunit.ArchUnitTestSuiteRules</rule>
+                                    <applyOn>
+                                        <packageName>com.splitbill.${project.name}</packageName>
+                                        <scope>test</scope>
+                                    </applyOn>
+                                </configurableRule>
+                            </configurableRules>
+                        </rules>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <phase>test</phase>
+                            <goals>
+                                <goal>arch-test</goal>
+                            </goals>
                         </execution>
                     </executions>
                 </plugin>

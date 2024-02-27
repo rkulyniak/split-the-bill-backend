@@ -11,6 +11,10 @@
 
     <artifactId>core</artifactId>
 
+    <properties>
+        <splitbill-arch-utin-tests.version>1.0-SNAPSHOT</splitbill-arch-utin-tests.version>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -19,6 +23,12 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.splitbill</groupId>
+            <artifactId>arch-unit-tests</artifactId>
+            <version>${splitbill-arch-utin-tests.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -32,6 +42,10 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>com.societegenerale.commons</groupId>
+                <artifactId>arch-unit-maven-plugin</artifactId>
             </plugin>
         </plugins>
     </build>
