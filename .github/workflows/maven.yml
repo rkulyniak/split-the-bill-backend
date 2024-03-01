@@ -31,7 +31,7 @@ jobs:
         run: mvn -B package --file pom.xml -DskipTests
 
       - name: Test with Maven
-        run: mvn test maven-checkstyle-plugin:checkstyle arch-unit-maven-plugin:arch-test
+        run: mvn test org.apache.maven.plugins:maven-checkstyle-plugin:checkstyle arch-unit-maven-plugin:arch-test
 
       - name: Archive production artifacts
         uses: actions/upload-artifact@v2
