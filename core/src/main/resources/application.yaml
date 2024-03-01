@@ -1,0 +1,10 @@
+spring:
+  config:
+    import:
+      - classpath:metrics-application.yaml
+---
+server:
+  port: 8081
+spring:
+  application:
+    name: core

@@ -19,6 +19,7 @@
     <modules>
         <module>core</module>
         <module>arch-unit-tests</module>
+        <module>metrics-starter</module>
     </modules>
 
     <properties>
@@ -30,6 +31,23 @@
     <build>
         <pluginManagement>
             <plugins>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>build-info</goal>
+                            </goals>
+                            <configuration>
+                                <additionalProperties>
+                                    <java.source>${java.version}</java.source>
+                                    <java.target>${java.version}</java.target>
+                                </additionalProperties>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-checkstyle-plugin</artifactId>

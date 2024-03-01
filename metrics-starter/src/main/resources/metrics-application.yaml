@@ -1,0 +1,15 @@
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
+  endpoint:
+    health:
+      show-details: always
+    beans:
+      cache:
+        time-to-live: '10s'
+  metrics:
+    tags:
+      app:
+        name: ${spring.application.name}
