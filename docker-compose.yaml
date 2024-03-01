@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  splitbill-core:
+    image: com.splitbill/core:latest
+    container_name: splitbill-core
+    restart: always
+    ports:
+      - "8080:8080"
+    networks:
+      - splitbill
+
+networks:
+  splitbill:
+    name: "splitbill"
