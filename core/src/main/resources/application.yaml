@@ -8,3 +8,6 @@ server:
 spring:
   application:
     name: core
+
+springdoc:
+  show-actuator: true
